@@ -4,6 +4,8 @@ import me.chrispeng.didemo.controller.ConstructorInjectedController;
 import me.chrispeng.didemo.controller.MyController;
 import me.chrispeng.didemo.controller.PropertyInjectedController;
 import me.chrispeng.didemo.controller.SetterPropertyController;
+import me.chrispeng.didemo.examplebean.FakeDataSource;
+import me.chrispeng.didemo.examplebean.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,10 +18,10 @@ public class DiDemoApplication {
 
         MyController controller = (MyController) context.getBean("myController");
 
-        controller.hello();
+	    FakeDataSource fakeDataSource = (FakeDataSource) context.getBean(FakeDataSource.class);
+	    System.out.println(fakeDataSource.getUser());
 
-        System.out.println(context.getBean(PropertyInjectedController.class).sayHello());
-        System.out.println(context.getBean(SetterPropertyController.class).sayHello());
-        System.out.println(context.getBean(ConstructorInjectedController.class).sayHello());
+	    FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) context.getBean(FakeJmsBroker.class);
+	    System.out.println(fakeJmsBroker.getUsername());
     }
 }
