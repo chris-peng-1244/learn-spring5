@@ -1,5 +1,6 @@
 package me.chrispeng.recipe.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import me.chrispeng.recipe.domain.*;
 import me.chrispeng.recipe.repositories.CategoryRepository;
 import me.chrispeng.recipe.repositories.RecipeRepository;
@@ -14,6 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -34,7 +36,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
 	private List<Recipe> getRecipes()
 	{
-
+		log.debug("Creating recipe");
 		List<Recipe> recipes = new ArrayList<>();
 		Recipe perfectGuacamole = new Recipe();
 		perfectGuacamole.getCategories().add(categoryRepository.findByDescription("American").get());

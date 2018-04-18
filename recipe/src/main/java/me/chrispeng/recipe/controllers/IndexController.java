@@ -1,5 +1,6 @@
 package me.chrispeng.recipe.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import me.chrispeng.recipe.domain.Category;
 import me.chrispeng.recipe.domain.Recipe;
 import me.chrispeng.recipe.domain.UnitOfMeasure;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -34,8 +36,8 @@ public class IndexController {
 		Iterable<Recipe> recipes = recipeService.getRecipes();
 		model.addAttribute("recipes", recipes);
 
-		System.out.println("Cat Id is: " + categoryOptional.get().getId());
-		System.out.println("UOM Id is: " + unitOfMeasureOptional.get().getId());
+		log.debug("Cat Id is: " + categoryOptional.get().getId());
+		log.debug("UOM Id is: " + unitOfMeasureOptional.get().getId());
 		return "index";
 	}
 }
