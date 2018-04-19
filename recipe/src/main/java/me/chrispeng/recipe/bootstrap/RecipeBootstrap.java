@@ -46,7 +46,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		perfectGuacamole.setCookTime(30);
 		perfectGuacamole.setDifficulty(Difficulty.MODERATE);
 		perfectGuacamole.setDescription("The BEST guacamole! So easy to make with ripe avocados, salt, serrano chiles, cilantro and lime. Garnish with red radishes or jicama. Serve with tortilla chips.");
-		Note notes = new Note();
+		Note notes = new Note() ;
 		notes.setRecipeNotes("Be careful handling chiles if using. Wash your hands thoroughly after handling and do not touch your eyes or the area near your eyes with your hands for several hours.");
 		notes.setRecipe(perfectGuacamole);
 		perfectGuacamole.setNotes(notes);
